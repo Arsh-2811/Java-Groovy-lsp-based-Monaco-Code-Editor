@@ -1,0 +1,119 @@
+{
+  "name": "monaco-editor-wrapper",
+  "version": "6.7.0",
+  "license": "MIT",
+  "description": "Wrapper for monaco-vscode-editor-api and monaco-languageclient",
+  "keywords": [
+    "monaco-editor",
+    "monaco-languageclient",
+    "typescript",
+    "vscode"
+  ],
+  "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./vscode/services": {
+      "types": "./dist/vscode/index.d.ts",
+      "default": "./dist/vscode/index.js"
+    },
+    "./vscode/locale": {
+      "types": "./dist/vscode/localeLoader.d.ts",
+      "default": "./dist/vscode/localeLoader.js"
+    },
+    "./workers/workerLoaders": {
+      "types": "./dist/workers/workerLoaders.d.ts",
+      "default": "./dist/workers/workerLoaders.js"
+    }
+  },
+  "typesVersions": {
+    "*": {
+      ".": [
+        "dist/index"
+      ],
+      "vscode/services": [
+        "dist/vscode/services"
+      ],
+      "vscode/locale": [
+        "dist/vscode/localeLoader"
+      ],
+      "workers/workerLoaders": [
+        "dist/workers/workerLoaders"
+      ]
+    }
+  },
+  "files": [
+    "dist",
+    "src",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "clean": "shx rm -fr ./dist ./bundle *.tsbuildinfo",
+    "build": "npm run clean && npm run compile:src",
+    "compile:src": "tsc --build tsconfig.src.json"
+  },
+  "engines": {
+    "node": ">=20.10.0",
+    "npm": ">=10.2.3"
+  },
+  "volta": {
+    "node": "22.15.0",
+    "npm": "10.9.2"
+  },
+  "dependencies": {
+    "@codingame/monaco-vscode-api": "~16.1.1",
+    "@codingame/monaco-vscode-editor-api": "~16.1.1",
+    "@codingame/monaco-vscode-editor-service-override": "~16.1.1",
+    "@codingame/monaco-vscode-extension-api": "~16.1.1",
+    "@codingame/monaco-vscode-language-pack-cs": "~16.1.1",
+    "@codingame/monaco-vscode-language-pack-de": "~16.1.1",
+    "@codingame/monaco-vscode-language-pack-es": "~16.1.1",
+    "@codingame/monaco-vscode-language-pack-fr": "~16.1.1",
+    "@codingame/monaco-vscode-language-pack-it": "~16.1.1",
+    "@codingame/monaco-vscode-language-pack-ja": "~16.1.1",
+    "@codingame/monaco-vscode-language-pack-ko": "~16.1.1",
+    "@codingame/monaco-vscode-language-pack-pl": "~16.1.1",
+    "@codingame/monaco-vscode-language-pack-pt-br": "~16.1.1",
+    "@codingame/monaco-vscode-language-pack-qps-ploc": "~16.1.1",
+    "@codingame/monaco-vscode-language-pack-ru": "~16.1.1",
+    "@codingame/monaco-vscode-language-pack-tr": "~16.1.1",
+    "@codingame/monaco-vscode-language-pack-zh-hans": "~16.1.1",
+    "@codingame/monaco-vscode-language-pack-zh-hant": "~16.1.1",
+    "@codingame/monaco-vscode-monarch-service-override": "~16.1.1",
+    "@codingame/monaco-vscode-textmate-service-override": "~16.1.1",
+    "@codingame/monaco-vscode-theme-defaults-default-extension": "~16.1.1",
+    "@codingame/monaco-vscode-theme-service-override": "~16.1.1",
+    "@codingame/monaco-vscode-views-service-override": "~16.1.1",
+    "@codingame/monaco-vscode-workbench-service-override": "~16.1.1",
+    "monaco-languageclient": "~9.6.0",
+    "vscode": "npm:@codingame/monaco-vscode-extension-api@~16.1.1",
+    "vscode-languageclient": "~9.0.1",
+    "vscode-languageserver-protocol": "~3.17.5",
+    "vscode-ws-jsonrpc": "~3.4.0"
+  },
+  "devDependencies": {
+    "@codingame/monaco-vscode-standalone-languages": "~16.1.1",
+    "@codingame/monaco-vscode-standalone-css-language-features": "~16.1.1",
+    "@codingame/monaco-vscode-standalone-html-language-features": "~16.1.1",
+    "@codingame/monaco-vscode-standalone-json-language-features": "~16.1.1",
+    "@codingame/monaco-vscode-standalone-typescript-language-features": "~16.1.1",
+    "monaco-languageclient-examples": "~2025.5.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TypeFox/monaco-languageclient.git",
+    "directory": "packages/wrapper"
+  },
+  "homepage": "https://github.com/TypeFox/monaco-languageclient/blob/main/packages/wrapper/README.md",
+  "bugs": "https://github.com/TypeFox/monaco-languageclient/issues",
+  "author": {
+    "name": "TypeFox",
+    "url": "https://www.typefox.io"
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "name": "@typefox/monaco-editor-react",
+  "version": "6.7.0",
+  "license": "MIT",
+  "description": "React component for Monaco-Editor and Monaco Languageclient",
+  "keywords": [
+    "monaco-editor",
+    "monaco-languageclient",
+    "typescript",
+    "react"
+  ],
+  "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "typesVersions": {
+    "*": {
+      ".": [
+        "dist/index"
+      ]
+    }
+  },
+  "files": [
+    "dist",
+    "src",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "clean": "shx rm -fr ./dist ./bundle *.tsbuildinfo",
+    "build": "npm run clean && npm run compile:src",
+    "compile:src": "tsc --build tsconfig.src.json"
+  },
+  "engines": {
+    "node": ">=20.10.0",
+    "npm": ">=10.2.3"
+  },
+  "volta": {
+    "node": "22.15.0",
+    "npm": "10.9.2"
+  },
+  "dependencies": {
+    "@codingame/monaco-vscode-editor-api": "~16.1.1",
+    "monaco-editor-wrapper": "~6.7.0",
+    "react": ">=18.0.0 || <20.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TypeFox/monaco-languageclient.git",
+    "directory": "packages/monaco-editor-react"
+  },
+  "homepage": "https://github.com/TypeFox/monaco-languageclient/blob/main/packages/wrapper-react/README.md",
+  "bugs": "https://github.com/TypeFox/monaco-languageclient/issues",
+  "author": {
+    "name": "TypeFox",
+    "url": "https://www.typefox.io"
+  }
+}
