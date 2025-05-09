@@ -14,7 +14,7 @@ import { configureDefaultWorkerFactory } from 'monaco-editor-wrapper/workers/wor
 import { eclipseJdtLsConfig } from '../config.js';
 import helloJavaCode from '../../../resources/eclipse.jdt.ls/workspace/hello.java?raw';
 
-export const runEclipseJdtLsClient = () => {
+export const runEclipseJdtLsClient = async () => {
     const helloJavaUri = vscode.Uri.file(`${eclipseJdtLsConfig.basePath}/workspace/hello.java`);
     const fileSystemProvider = new RegisteredFileSystemProvider(false);
     fileSystemProvider.registerFile(new RegisteredMemoryFile(helloJavaUri, helloJavaCode));
@@ -71,17 +71,14 @@ export const runEclipseJdtLsClient = () => {
     const wrapper = new MonacoEditorLanguageClientWrapper();
 
     try {
-        document.querySelector('#button-start')?.addEventListener('click', async () => {
-            await wrapper.init(wrapperConfig);
-
-            // open files, so the LS can pick it up
-            await vscode.workspace.openTextDocument(helloJavaUri);
-
-            await wrapper.start();
+        await wrapper.init(wrapperConfig);
+        await vscode.workspace.openTextDocument(helloJavaUri);
+        await wrapper.start();
+        
+        window.addEventListener('beforeunload', () => {
+            wrapper.dispose().catch(console.error);
         });
-        document.querySelector('#button-dispose')?.addEventListener('click', async () => {
-            await wrapper.dispose();
-        });
+        
     } catch (e) {
         console.error(e);
     }

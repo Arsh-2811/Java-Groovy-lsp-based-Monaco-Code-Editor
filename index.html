@@ -9,21 +9,15 @@
 </head>
 
 <body>
-    <div style="padding: 5px">
-        <h3>Java / Eclipse JDS LS</h3>
-        <!-- Requires docker. Please execute
-        <b><code>docker compose -f ./packages/examples/resources/eclipse.jdt.ls/docker-compose.yml up -d</code></b>
-        beforehand:<br> -->
-        <a href="./packages/examples/eclipse.jdt.ls.html">Java Language Client & Language Server (Web Socket)</a>
-        <br>
+    <!-- <div id="monaco-editor-root" style="width:800px;height:600px;border:1px solid grey"></div> -->
 
-        <h3>Groovy</h3>
-        <!-- Requires docker. Please execute
-        <b><code>docker compose -f ./packages/examples/resources/groovy/docker-compose.yml up -d</code></b>
-        beforehand:<br> -->
-        <a href="./packages/examples/groovy.html">Groovy Language Client & Language Server (Web Socket)</a>
-        <br>
-    </div>
+    <!-- <script type="module">
+        import { runEclipseJdtLsClient } from "/home/arsh/Java-Groovy-lsp-based-Monaco-Code-Editor/packages/examples/src/eclipse.jdt.ls/client/main.ts";        
+        runEclipseJdtLsClient();
+    </script> -->
+    <div id="root" style="width:100vw; height:100vh"></div>
+    <!-- Vite injects your client bundle automatically -->
+    <script type="module" src="/src/main.tsx"></script>
 </body>
 
 </html>
